@@ -1,8 +1,12 @@
 #!/bin/bash
 #==============================================================================
 # GW-Kit
-# 	@author : yunsang.choi(oddpoet@gmail.com)
-#	@src : https://gist.github.com/gists/3115022
+
+# 	@author : (origin) yunsang.choi(oddpoet@gmail.com)
+#       @author : (forked) jinkwon(master@bdyne.net)
+#	@src : (origin) https://gist.github.com/gists/3115022
+#	@src : (forked) https://github.com/Jinkwon/naver-gw-kit/
+
 #-------
 #	v1.3.4
 #		- minor change (display text) 
