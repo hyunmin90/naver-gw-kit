@@ -5,12 +5,10 @@ Naver 커버로스(kerberos) 인증 및 rlogin을 위한 Gateway 스크립트
 
 ## Installation
 ```
-curl 
-chmod 700 gwk.sh
+curl https://raw.githubusercontent.com/Jinkwon/naver-gw-kit/master/gwk.sh > gwk.sh | chmod 700 gwk.sh
 ```
 
 ### Usage
-
 
 Known hosts 추가
 ```
