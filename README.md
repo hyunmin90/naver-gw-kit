@@ -19,3 +19,7 @@ touch .known_hosts >> server_id.ncl    SERVER_NAME
 ```
 ./gwh.sh
 ```
+
+
+### CHANGE LOG
+- exec_kinit이 제대로 동작하지 않아 다이렉트로 실행할 수 있도록 수정
