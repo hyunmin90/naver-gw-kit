@@ -276,7 +276,7 @@ set_host_description() {
        	read -e desc
 	echo -e "${reset}"
 	if [ -z "$desc" ];then desc="$old_desc"; fi
-	if [ -z "$desc" ];then desc="* no description *"; fi
+	if [ -z "$desc" ];then desc=""; fi
  
 	if [ -z "`cat $HOST_LIST_FILE | grep -E "^$host"`" ];then
 		echo "$host     $desc" >> $HOST_LIST_FILE
@@ -646,7 +646,7 @@ good_bye(){
 #==============================================================================
 # Initialize
 #==============================================================================
-#exec_kinit
+exec_kinit
 init_host_list
 trap good_bye INT # trap ctrl+c
  
