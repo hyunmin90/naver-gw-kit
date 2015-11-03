@@ -43,37 +43,6 @@ VERSION="1.3.4"
 # run direct
 kinit -f
 
-exec_kinit() {
-	local password
-	print_signature
-	echo "Try to kinit ...."
-
-# not Work any more : comment by JK
-#	if [ ! -f $KINIT_PW_FILE ];then
-#		echo -ne "${red}Password for `whoami`@NAVER.COM:${reset}"
-#		read -s -e password
-#	else 
-#		password=$(<$KINIT_PW_FILE)
-#	fi
-	expect -c "
-		log_user 0
-	        spawn -noecho kinit -V -f `whoami`
-		expect \"Password\"
-		send \"$password\r\"
-		expect {
-			\"Authenticated\" { exit 0;}
-			\"Password incorrect\" { exit 1;}
-	       	}
-		exit 2; 
-	"
-	case $? in
-		0) message="success to kinit";;
-		1) message="fail to kinit: password incorrect";;  
-		2) message="fail to kinit: why?";;
-	esac
-}
- 
- 
 #========================================
 # Read key input
 #	see : http://www.linuxquestions.org/questions/programming-9/bash-case-with-arrow-keys-and-del-backspace-etc-523441/
@@ -557,7 +526,6 @@ print_logo(){
  
 print_help() {
 	echo -en " [/]: change user to rlogin        "
-	echo -e  " [ctrl-r]: retry kinit" 
 	echo -en " [ctrl-n]: clear hostname          "
 	echo -e  " [ctrl-c]: quit"
 	echo -e  " [=]: modify description for the selected host"
@@ -645,7 +613,6 @@ good_bye(){
 #==============================================================================
 # Initialize
 #==============================================================================
-exec_kinit
 init_host_list
 trap good_bye INT # trap ctrl+c
  
@@ -676,7 +643,6 @@ while true;do
 		/ ) next_user;;
 		delete ) delete_next_ch_hostname_filter;;
 		# special
-		ctrl-r ) clear;exec_kinit;;
 		ctrl-n ) clear_hostname_filter;;
 		= ) modify_host_description;;
 		# inputhost name filter
