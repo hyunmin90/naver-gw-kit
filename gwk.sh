@@ -617,7 +617,7 @@ do_execute() {
 		return
 	fi
 	clear 
-	local tmpfile="/tmp/$(basename $0).$$.tmp"
+	local tmpfile="$(basename $0).$$.tmp"
 	print_signature
 	echo -e "Try to rlogin to ${yellow}$hostname_filter${reset} as ${magenta}$user${reset} ..."
 	echo 
@@ -639,13 +639,14 @@ good_bye(){
 	echo -e "${reset}${red}Happy Hacking!${reset}"
 	echo 
 	stty echo 
+	rm ~/gwk.sh.*.tmp &> /dev/null
 	exit 0;
 }
  
 #==============================================================================
 # Initialize
 #==============================================================================
-exec_kinit
+#exec_kinit
 init_host_list
 trap good_bye INT # trap ctrl+c
  
