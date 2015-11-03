@@ -562,7 +562,6 @@ print_help() {
 	echo -e  " [ctrl-c]: quit"
 	echo -e  " [=]: modify description for the selected host"
 	echo -e  " - hostname will be autosaved if it is valid.($HOST_LIST_FILE)"
-	echo -e  " - make '$KINIT_PW_FILE' to execute kinit automatically. "
 }
  
 print_command() {
