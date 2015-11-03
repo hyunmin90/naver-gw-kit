@@ -17,8 +17,10 @@ touch .known_hosts >> server_id.ncl    SERVER_NAME
 ```
 
 실행
+보안상의 이슈로 kinit으로 커버로스 통과 필요
 ```
-./gwh.sh
+kinit
+./gwk.sh
 ```
 
 
